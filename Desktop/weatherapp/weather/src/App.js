@@ -1,12 +1,12 @@
 import './App.css';
 import Navbar from './components/NavBar';
-import Form from './components/Form';
+import WeatherPanel from './components/WeatherPanel';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Form />
+      <WeatherPanel />
     </div>
   );
 }

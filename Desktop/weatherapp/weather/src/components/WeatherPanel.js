@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Form from "./Form";
+
 
 const WeatherPanel = () => {
 
-    const urlWeather = "https://api.openweathermap.org/data/2.5/weather?appid=798e111e9f5e90920f4ea6a4408f4f80&lang=en";
-    const cityUrl = "&q=";
+    let urlWeather = "https://api.openweathermap.org/data/2.5/weather?appid=798e111e9f5e90920f4ea6a4408f4f80&lang=en";
+    let cityUrl = "&q=";
 
-    const urlForecast = "https://api.openweathermap.org/data/2.5/forecast?appid=798e111e9f5e90920f4ea6a4408f4f80&lang=en";
+    let urlForecast = "https://api.openweathermap.org/data/2.5/forecast?appid=798e111e9f5e90920f4ea6a4408f4f80&lang=en";
 
     const [weather, setWeather] = useState([]);
     const [forecast, setForecast] = useState([]);
@@ -19,10 +21,10 @@ const WeatherPanel = () => {
         setLocation(loc);
 
         //weather
-        urlWeather = urlWeather + cityUrl + loc;
+         urlWeather = urlWeather + cityUrl + loc;
 
         // Utiliza axios para realizar la solicitud HTTP
-        axios.get(urlWeather)
+       await axios.get(urlWeather)
             .then((response) => {
                 // Verifica si la respuesta no es exitosa y lanza un error si es necesario
                 if (!response.data) {
@@ -35,8 +37,7 @@ const WeatherPanel = () => {
 
                 // Actualiza el estado con los datos de clima
                 setWeather(weatherData);
-            })
-            .catch((error) => {
+            }).catch((error) => {
                 console.error(error);
 
                 // Realiza las acciones necesarias cuando se produce un error
@@ -48,7 +49,7 @@ const WeatherPanel = () => {
 
         urlForecast = urlForecast + cityUrl + loc;
 
-        axios.get(urlForecast)
+        await axios.get(urlForecast)
             .then((response) => {
                 // Verifica si la respuesta no es exitosa y lanza un error si es necesario
                 if (!response.data) {
@@ -61,19 +62,23 @@ const WeatherPanel = () => {
 
                 // Actualiza el estado con los datos de clima
                 setForecast(forecastData);
-            })
-            .catch((error) => {
+
+                setLoading(false);
+                setShow(true);
+            }).catch((error) => {
                 console.error(error);
 
                 // Realiza las acciones necesarias cuando se produce un error
                 setLoading(false);
                 setShow(false);
             });
+    };
 
-
-
-
-    }
+    return (
+        <React.Fragment>
+            <Form newLocation = {getLocation} />
+        </React.Fragment>
+    );
 };
 
 export default WeatherPanel;
