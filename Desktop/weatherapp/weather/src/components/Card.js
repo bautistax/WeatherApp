@@ -14,6 +14,19 @@ const Card = ({loadingData, showData, weather, forecast}) => {
                 showData === true ? (
                     <div className="container">
                         <div className="mb-3 mx-auto bg-black text-lime-50">
+                            <div className="row gap-0">
+                                <div className="">
+                                    <img src="https://images.pexels.com/photos/2097616/pexels-photo-2097616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+
+                                </div>
+                                <div className="">
+                                    <div className="text-start mt-2">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
