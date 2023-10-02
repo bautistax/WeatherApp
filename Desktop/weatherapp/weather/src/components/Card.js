@@ -12,7 +12,13 @@ const Card = ({loadingData, showData, weather, forecast}) => {
 
     let url = "";
     let urlIcon = "";
+    let urlIcon3="";
+    let urlIcon6 = "";
+    let urlIcon9 = "";
 
+    let forecastDate3 = "";
+    let forecastDate6 = "";
+    let forecastDate9 = "";
 
     if(loadingData){
         return <Loading />
@@ -21,6 +27,15 @@ const Card = ({loadingData, showData, weather, forecast}) => {
     if(showData){
         url = "http://openweathermap.org/img/w/";
         urlIcon = url + weather.weather[0].icon + ".png";
+
+        urlIcon3 = url + forecast.list[1].weather[0].icon + ".png";
+        urlIcon6 = url + forecast.list[2].weather[0].icon + ".png";
+        urlIcon9 = url + forecast.list[3].weather[0].icon + ".png";
+
+        forecastDate3 = forecast.list[1].dt_txt.substring(8, 10) + "/" + forecast.list[1].dt_txt.substring(5, 7) + "/" + forecast.list[1].dt_txt.substring(0, 4) + " " + forecast.list[1].dt_txt.substring(11, 13);
+        forecastDate6 = forecast.list[2].dt_txt.substring(8, 10) + "/" + forecast.list[2].dt_txt.substring(5, 7) + "/" + forecast.list[2].dt_txt.substring(0, 4) + " " + forecast.list[2].dt_txt.substring(11, 13);
+        forecastDate9 = forecast.list[3].dt_txt.substring(8, 10) + "/" + forecast.list[3].dt_txt.substring(5, 7) + "/" + forecast.list[3].dt_txt.substring(0, 4) + " " + forecast.list[3].dt_txt.substring(11, 13);
+
     };
 
     return (
@@ -41,7 +56,32 @@ const Card = ({loadingData, showData, weather, forecast}) => {
                                 </div>
                                 <div className="columns-md">
                                     <div className="card-body text-start mt-2">
-                                        <h5 className="card-text">Maximum temperature: {(weather.main.temp_max - 273.15).toFixed(1)}°C</h5>
+                                        <h5 className="card-text">Maximum Temperature: {(weather.main.temp_max - 273.15).toFixed(1)}°C</h5>
+                                        <h5 className="card-text">Minimum Temperature: {(weather.main.temp_min - 273.15).toFixed(1)}°C</h5>
+                                        <h5 className="card-text">Feels Like: {(weather.main.feels_like - 273.15).toFixed(1)}°C</h5>
+                                        <h5 className="card-text">Humidity: {weather.main.humidity}%</h5>
+                                        <h5 className="card-text">Wind Speed: {weather.wind.speed}m/s</h5>
+                                    </div>
+                                    <hr/>
+
+                                    <div className="mt-4">
+                                        <div className="col-auto">
+                                            <p>{forecastDate3}h</p>
+                                            <p className="description"><img src={urlIcon3} alt="icon" />{forecast.list[1].weather[0].description}</p>
+                                            <p className="temperature">{(forecast.list[1].main.temp - 273.15).toFixed(1)} °C</p>
+                                        </div>
+
+                                        <div className="col-auto">
+                                            <p>{forecastDate6}h</p>
+                                            <p className="description"><img src={urlIcon6} alt="icon" />{forecast.list[2].weather[0].description}</p>
+                                            <p className="temperature">{(forecast.list[2].main.temp - 273.15).toFixed(1)} °C</p>
+                                        </div>
+
+                                        <div className="col-auto">
+                                            <p>{forecastDate9}h</p>
+                                            <p className="description"><img src={urlIcon9} alt="icon" />{forecast.list[3].weather[0].description}</p>
+                                            <p className="temperature">{(forecast.list[3].main.temp - 273.15).toFixed(1)} °C</p>
+                                        </div>
 
                                     </div>
 
