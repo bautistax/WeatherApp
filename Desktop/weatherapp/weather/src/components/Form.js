@@ -16,11 +16,11 @@ const Form = ({newLocation}) => {
      };
 
      return (
-        <div className='container'>
+        <div className='container text-center'>
             <form onSubmit={handleSubmit}>
-                <div className='mx-auto mb-3'>
-                    <input type='text' className='' placeholder='City' onChange={handleInputChange} />
-                    <button className=' bg-blue-700 text-black' type='submit'>Search</button>
+                <div className='mx-auto mb-3 space-x-3'>
+                    <input type='text' className='rounded-[8px] w-80 h-7 text-center' placeholder='Search City' onChange={handleInputChange} />
+                    <button className='rounded-[8px] w-20 h-7 bg-blue-700 text-black' type='submit'>Search</button>
                 </div>
                 
             </form>

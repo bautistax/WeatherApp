@@ -1,8 +1,8 @@
 const Navbar = () => {
  return (
-    <nav className="navbar bg-slate-900 text-lime-50 mb-5">
-        <div className="content-center">
-            <h3 className="mx-auto text-center">Wheather App</h3>
+    <nav className="bg-slate-900 mb-8">
+        <div className="container mx-auto flex justify-center items-center">
+            <h3 className="font-sans text-2xl text-white font-bold py-2 px-4">Wheather App</h3>
         </div>
 
     </nav>
