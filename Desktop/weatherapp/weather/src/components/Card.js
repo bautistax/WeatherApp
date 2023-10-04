@@ -43,7 +43,7 @@ const Card = ({loadingData, showData, weather, forecast}) => {
 
             {
                 showData === true ? (
-                    <div className="mx-auto w-96 h-96 lg:w-120 lg:h-120 relative">
+                    <div className="mx-auto w-96 h-auto relative">
                     <img src="https://i.pinimg.com/564x/db/df/c2/dbdfc26503d1b6150202f1563142a02a.jpg" alt="city" className="rounded-s w-full h-full lg:w-full lg:h-full object-cover" />
                     <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
                         <div>
