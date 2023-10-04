@@ -5,14 +5,14 @@ body{
   text-align: center;
 }
 
-.card-title {
+/* .card-title {
   position: absolute;
   padding: 20px;
 }
 .card-date {
   position: absolute;
   padding-left: 20px;
-  margin-top: 60px;
+  margin-top: 100px;
 }
 
 .card-temperature {
@@ -26,4 +26,4 @@ font-size: 50px;
   position: absolute;
   padding-left: 20px;
   margin-top: 320px;
-}
+} */
