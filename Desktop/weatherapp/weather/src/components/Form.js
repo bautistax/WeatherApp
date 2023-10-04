@@ -20,7 +20,7 @@ const Form = ({newLocation}) => {
             <form onSubmit={handleSubmit}>
                 <div className='mb-3 space-x-3'>
                     <input type='text' className='rounded-[8px] my-3 w-96 h-8 text-start' placeholder='Search City' onChange={handleInputChange} />
-                    <button className='rounded-[8px] w-20 h-7 bg-blue-700 text-black' type='submit'>Search</button>
+                    <button className='rounded-[8px] w-20 h-8 bg-blue-700 text-black' type='submit'>Search</button>
                 </div>
                 
             </form>

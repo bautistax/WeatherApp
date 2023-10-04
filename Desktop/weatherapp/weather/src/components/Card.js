@@ -51,7 +51,7 @@ const Card = ({loadingData, showData, weather, forecast}) => {
                                     <p className="card-date">{date}</p>
                                     <h1 className="card-temperature">{(weather.main.temp - 273.15).toFixed(1)}°C</h1>
                                     <p><img src={urlIcon} alt="icon" />{weather.weather[0].description}</p>
-                                    <img src="https://i.pinimg.com/564x/88/b8/bb/88b8bb8183ba4e674a058a470a227aee.jpg" alt="city" className="rounded-s" />
+                                    <img src="https://i.pinimg.com/564x/db/df/c2/dbdfc26503d1b6150202f1563142a02a.jpg" alt="city" className="rounded-s" />
 
                                 </div>
                                 <div className="columns-md">
