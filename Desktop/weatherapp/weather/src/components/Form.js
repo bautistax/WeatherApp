@@ -16,15 +16,20 @@ const Form = ({newLocation}) => {
      };
 
      return (
-        <div className='container mx-auto flex justify-center items-center text-center  '>
-            <form onSubmit={handleSubmit}>
-                <div className='mb-3 space-x-3'>
-                    <input type='text' className='rounded-[8px] my-3 w-96 h-8 text-start' placeholder='Search City' onChange={handleInputChange} />
-                    <button className='rounded-[8px] w-20 h-8 bg-blue-700 text-black' type='submit'>Search</button>
-                </div>
-                
-            </form>
-        </div>
+        <div className='container mx-auto mb-4 flex flex-col lg:flex-row justify-center items-center text-center'>
+        <form onSubmit={handleSubmit} className='mb-3 lg:mb-0 space-y-3 lg:space-y-0 lg:space-x-3 flex flex-col lg:flex-row'>
+          <input
+            type='text'
+            className='rounded-[8px] lg:w-96 h-8 text-start font-serif'
+            placeholder='Search City'
+            onChange={handleInputChange}
+          />
+          <button className='rounded-[8px] w-full lg:w-20 h-8 bg-slate-900 text-slate-300 font-serif' type='submit'>
+            Search
+          </button>
+        </form>
+      </div>
+      
      );
 };
 

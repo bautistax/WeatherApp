@@ -39,56 +39,51 @@ const Card = ({loadingData, showData, weather, forecast}) => {
     };
 
     return (
-        <div className="mt-5">
+        <div className="">
 
-            {
-                showData === true ? (
-                    <div className="mx-auto w-96 h-auto relative">
-                    <img src="https://i.pinimg.com/564x/db/df/c2/dbdfc26503d1b6150202f1563142a02a.jpg" alt="city" className="rounded-s w-full h-full lg:w-full lg:h-full object-cover" />
-                    <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
-                        <div>
-                            <h3 className="text-2xl font-semibold">{weather.name}</h3>
-                            <p className="text-sm">{date}</p>
-                            <h1 className="text-4xl">{(weather.main.temp - 273.15).toFixed(1)}°C</h1>
-                            <p className="text-sm"><img src={urlIcon} alt="icon" />{weather.weather[0].description}</p>
+        {showData === true ? (
+            <div className="mx-auto w-full lg:w-96 h-auto relative">
+                <img src="https://i.pinimg.com/564x/66/41/e6/6641e62d7476ae21918c93fe9a39bccd.jpg" alt="city" className="rounded-2xl w-full h-full lg:w-full lg:h-full object-cover" />
+                <div className="absolute inset-0 flex flex-col justify-between p-4 text-slate-300">
+                    <div>
+                        <h3 className="text-5xl font-semibold">{weather.name}</h3>
+                        <p className="text-base">{date}</p>
+                        <h1 className="text-6xl">{(weather.main.temp - 273.15).toFixed(1)}°C</h1>
+                        <p className="text-xl"><img src={urlIcon} alt="icon" />{weather.weather[0].description}</p>
+                    </div>
+                    <div className="card-body text-start lg:-mt-32">
+                        <h5 className="text-xl">Max Temp: {(weather.main.temp_max - 273.15).toFixed(1)}°C</h5>
+                        <h5 className="text-xl">Min Temp: {(weather.main.temp_min - 273.15).toFixed(1)}°C</h5>
+                        <h5 className="text-xl">Feels Like: {(weather.main.feels_like - 273.15).toFixed(1)}°C</h5>
+                        <h5 className="text-xl">Humidity: {weather.main.humidity}%</h5>
+                        <h5 className="text-xl">Wind Speed: {weather.wind.speed}m/s</h5>
+                    </div>
+                    <hr className="lg:-mt-28" />
+                    <div className="lg:-mt-28 flex flex-col lg:flex-row justify-between">
+                        <div className="col-auto mb-4 lg:mb-0">
+                            <p className="text-sm">{forecastDate3}h</p>
+                            <p className="text-sm description"><img src={urlIcon3} alt="icon" />{forecast.list[1].weather[0].description}</p>
+                            <p className="text-sm temperature">{(forecast.list[1].main.temp - 273.15).toFixed(1)} °C</p>
                         </div>
-                        <div className="card-body text-start mt-2">
-                            <h5 className="text-sm">Max Temp: {(weather.main.temp_max - 273.15).toFixed(1)}°C</h5>
-                            <h5 className="text-sm">Min Temp: {(weather.main.temp_min - 273.15).toFixed(1)}°C</h5>
-                            <h5 className="text-sm">Feels Like: {(weather.main.feels_like - 273.15).toFixed(1)}°C</h5>
-                            <h5 className="text-sm">Humidity: {weather.main.humidity}%</h5>
-                            <h5 className="text-sm">Wind Speed: {weather.wind.speed}m/s</h5>
+                        <div className="col-auto mb-4 lg:mb-0">
+                            <p className="text-sm">{forecastDate6}h</p>
+                            <p className="text-sm description"><img src={urlIcon6} alt="icon" />{forecast.list[2].weather[0].description}</p>
+                            <p className="text-sm temperature">{(forecast.list[2].main.temp - 273.15).toFixed(1)} °C</p>
                         </div>
-                        <hr className="my-2" />
-                        <div className="mt-2 flex justify-between">
-                            <div className="col-auto">
-                                <p className="text-sm">{forecastDate3}h</p>
-                                <p className="text-sm description"><img src={urlIcon3} alt="icon" />{forecast.list[1].weather[0].description}</p>
-                                <p className="text-sm temperature">{(forecast.list[1].main.temp - 273.15).toFixed(1)} °C</p>
-                            </div>
-                            <div className="col-auto">
-                                <p className="text-sm">{forecastDate6}h</p>
-                                <p className="text-sm description"><img src={urlIcon6} alt="icon" />{forecast.list[2].weather[0].description}</p>
-                                <p className="text-sm temperature">{(forecast.list[2].main.temp - 273.15).toFixed(1)} °C</p>
-                            </div>
-                            <div className="col-auto">
-                                <p className="text-sm">{forecastDate9}h</p>
-                                <p className="text-sm description"><img src={urlIcon9} alt="icon" />{forecast.list[3].weather[0].description}</p>
-                                <p className="text-sm temperature">{(forecast.list[3].main.temp - 273.15).toFixed(1)} °C</p>
-                            </div>
+                        <div className="col-auto">
+                            <p className="text-sm">{forecastDate9}h</p>
+                            <p className="text-sm description"><img src={urlIcon9} alt="icon" />{forecast.list[3].weather[0].description}</p>
+                            <p className="text-sm temperature">{(forecast.list[3].main.temp - 273.15).toFixed(1)} °C</p>
                         </div>
                     </div>
                 </div>
-                
-                
-                
-                
-                ):(
-                    <h2 className="text-center mx-auto text-lime-50">No data available</h2>
-                )
-            }
-
-        </div>
+            </div>
+        ) : (
+            <h2 className="text-center mx-auto text-lime-50">No data available</h2>
+        )}
+    
+    </div>
+    
     )
 };
 
