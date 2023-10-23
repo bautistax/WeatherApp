@@ -1,7 +1,9 @@
 .pl {
-  display: block;
-  width: 9.375em;
-  height: 9.375em;
+  position: fixed;
+  right: 50%;
+  left: 45%;
+  width: 5em;
+  height: 5.375em;
 }
 
 .pl__arrows,
